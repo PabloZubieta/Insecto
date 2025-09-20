@@ -7,6 +7,7 @@ use App\Models\Boxe;
 use App\Models\Mealworm;
 use App\Models\Set;
 use App\Models\Guano;
+use App\Models\Type;
 
 use App\Models\Users_work_set;
 use Illuminate\Http\Request;
@@ -68,8 +69,10 @@ class SetController extends Controller
                     ->where('mealworms.active' ,'=' ,1)
                     ->where('mealworms.sets_id' ,'=' ,$id)
                     ->get();
+                $types=Type::select('id', 'name')->get();
 
-                return view('boxes.display',['sets'=>$set, 'boxes'=>$boxes, 'worms'=>$worms]);
+
+                return view('boxes.display',['sets'=>$set, 'boxes'=>$boxes, 'worms'=>$worms, 'types'=>$types]);
             }
             else
             {

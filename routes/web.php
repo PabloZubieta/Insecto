@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SetController;
+use App\Http\Controllers\BoxeController;
 use App\Http\Middleware\Authenticate;
 use App\Http\Controllers\Users_work_setController;
 
@@ -39,4 +40,6 @@ route::get('/set/{id}',[SetController::class,'full'])->middleware(Authenticate::
 route::post('/guanoadd',[SetController::class,'guanoadd'])->middleware(Authenticate::class);
 
 route::post('/usersadd',[Users_work_setController::class,'usersadd'])->middleware(Authenticate::class);
+
+route::post('/boxecreate',[BoxeController::class,'create'])->middleware(Authenticate::class);
 

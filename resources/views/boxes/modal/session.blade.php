@@ -13,19 +13,46 @@
 
             <!-- Modal Header -->
             <div class="modal-header">
-                <h4 class="modal-title">Creation d'un nouvel ensemble</h4>
+                <h4 class="modal-title">Creation d'un nouvelle boite</h4>
                 <button type="button" class="btn-close" data-dismiss="modal"></button>
             </div>
 
             <!-- Modal body -->
             <div class="modal-body">
-                <form method="POST" action="/setcreate">
+                <form method="POST" action="/boxecreate">
                     @csrf <!-- juste de la securité  https://laravel.com/docs/5.8/csrf -->
                     <div class="mb-3 mt-3">
-                        <label for="name">Nom de l'ensemble:</label>
+                        <label for="name">Nom de boite:</label>
                         <input type="text" class="form-control" name="name" placeholder="Nom de l'ensemble"
                                value="{{old('name')}}">
                         @error('name')
+                        <p>{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="weight"  >Poids:</label>
+                        <input type="number" class="form-control" name="weight" placeholder="Poids"
+                               value="{{old('weight')}}" >
+                        @error('weight')
+                        <p>{{$message}}</p>
+                        @enderror
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="size"  >Taille:</label>
+                        <select type="number" class="form-control" name="size" >
+                        @foreach($types as $type)
+                        <option value="{{$type->id}}">{{$type->name}}</option>
+                        @endforeach
+                        @error('size')
+                        <p>{{$message}}</p>
+                        @enderror
+                        </select>
+                    </div>
+                    <div class="mb-3 mt-3">
+                        <label for="id"  hidden>id:</label>
+                        <input type="number" class="form-control" name="id" placeholder="id"
+                               value="{{$sets->id}}" hidden>
+                        @error('id')
                         <p>{{$message}}</p>
                         @enderror
                     </div>

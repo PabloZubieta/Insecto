@@ -76,6 +76,7 @@ foreach ($worms as $worm)
                             <div class="">
                                 <p>{{((float)$prod)/1000}} kg</p>
                             </div>
+                            
                             @if($boxes->contains('type','size4'))
                             <div >
                                 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Wormsadd"> add</button>
@@ -92,7 +93,7 @@ foreach ($worms as $worm)
             <div class=" col-4 ">
                 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Users"> User Gestion</button>
                 <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Nourish"> Nourish</button>
-                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Session"> New Session</button>
+                <button  type="button" class="btn btn-primary" data-toggle="modal" data-target="#Session"> Boxe</button>
             </div>
 
         </div>
